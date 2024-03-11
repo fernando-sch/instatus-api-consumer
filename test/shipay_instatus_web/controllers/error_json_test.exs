@@ -2,7 +2,9 @@ defmodule ShipayInstatusWeb.ErrorJSONTest do
   use ShipayInstatusWeb.ConnCase, async: true
 
   test "renders 404" do
-    assert ShipayInstatusWeb.ErrorJSON.render("404.json", %{}) == %{errors: %{detail: "Not Found"}}
+    assert ShipayInstatusWeb.ErrorJSON.render("404.json", %{}) == %{
+             errors: %{detail: "Not Found"}
+           }
   end
 
   test "renders 500" do
