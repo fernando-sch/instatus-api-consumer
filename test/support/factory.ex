@@ -2,7 +2,7 @@ defmodule ShipayInstatus.Factory do
   @moduledoc """
     Factory of fixtures using ex-machina lib, for tests
   """
-  use ExMachina.Ecto, repo: ToDo.Repo
+  use ExMachina.Ecto, repo: ShipayInstatus.Repo
 
   alias ShipayInstatus.Incidents.Incident
 
