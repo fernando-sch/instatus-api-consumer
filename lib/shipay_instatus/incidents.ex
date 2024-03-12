@@ -3,10 +3,15 @@ defmodule ShipayInstatus.Incidents do
   alias ShipayInstatus.Incidents.Incident
   alias ShipayInstatus.Repo
 
-  @spec create_incident(map()) :: {:ok, Incident.t()} | {:error, Ecto.Changeset.t()}
-  def create_incident(%{} = attrs) do
-    %Incident{}
+  @spec create_or_update_incident(map()) :: {:ok, Incident.t()} | {:error, Ecto.Changeset.t()}
+  def create_or_update_incident(%{} = attrs) do
+    incident_id = Map.get(attrs, :id, "") || Map.get(attrs, "id", "")
+
+    case Repo.get(Incident, incident_id) do
+      nil -> %Incident{}
+      incident -> incident
+    end
     |> Incident.changeset(attrs)
-    |> Repo.insert()
+    |> Repo.insert_or_update()
   end
 end
