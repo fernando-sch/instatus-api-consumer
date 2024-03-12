@@ -4,7 +4,7 @@ defmodule ShipayInstatus.Factory do
   """
   use ExMachina.Ecto, repo: ToDo.Repo
 
-  alias ShipayInstatus.Incident
+  alias ShipayInstatus.Incidents.Incident
 
   def incident_factory do
     stringified_utc_now = NaiveDateTime.utc_now() |> NaiveDateTime.to_string()
