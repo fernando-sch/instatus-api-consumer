@@ -4,7 +4,7 @@ defmodule ShipayInstatus.Factory do
   """
   use ExMachina.Ecto, repo: ToDo.Repo
 
-  alias ShipayInstatus.Incident
+  alias ShipayInstatus.Incidents.Incident
 
   def incident_factory do
     stringified_utc_now = NaiveDateTime.utc_now() |> NaiveDateTime.to_string()
@@ -18,7 +18,7 @@ defmodule ShipayInstatus.Factory do
       resolved_at: stringified_utc_now,
       updated_at: stringified_utc_now,
       created_at: stringified_utc_now,
-      incident_updates: build_list(:incident_update)
+      incident_updates: build_list(2, :incident_update)
     }
   end
 
@@ -35,5 +35,5 @@ defmodule ShipayInstatus.Factory do
   end
 
   defp get_incident_status,
-    do: Enum.random("INVESTIGATING", "IDENTIFIED", "MONITORING", "RESOLVED")
+    do: Enum.random(["INVESTIGATING", "IDENTIFIED", "MONITORING", "RESOLVED"])
 end

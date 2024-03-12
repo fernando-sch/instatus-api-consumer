@@ -1,6 +1,7 @@
-defmodule ShipayInstatus.Incident do
+defmodule ShipayInstatus.Incidents.Incident do
   @moduledoc false
   use Ecto.Schema
+  import Ecto.Changeset
 
   @type t :: %__MODULE__{
           impact: String.t(),
@@ -38,5 +39,25 @@ defmodule ShipayInstatus.Incident do
       field(:created_at, :utc_datetime)
       field(:updated_at, :utc_datetime)
     end
+  end
+
+  @spec changeset(t(), map()) :: Ecto.Changeset.t()
+  def changeset(%__MODULE__{} = incident, %{} = attrs) do
+    required_fields = [:id, :name, :status, :url, :created_at, :updated_at]
+    optional_fields = [:impact, :resolved_at]
+
+    incident
+    |> cast(attrs, required_fields ++ optional_fields)
+    |> validate_required(required_fields)
+    |> cast_embed(:incident_updates, with: &incident_update_changeset/2, required: false)
+  end
+
+  def incident_update_changeset(%__MODULE__.Update{} = incident_update, %{} = attrs) do
+    required_fields = [:incident_id, :status, :created_at, :updated_at]
+    optional_fields = [:body]
+
+    incident_update
+    |> cast(attrs, required_fields ++ optional_fields)
+    |> validate_required(required_fields)
   end
 end
