@@ -1,5 +1,5 @@
-defmodule InstatusWeb.Webhooks.ControllerTest do
-  use InstatusWeb.ConnCase, async: true
+defmodule InstatusAPIConsumerWeb.Webhooks.ControllerTest do
+  use InstatusAPIConsumerWeb.ConnCase, async: true
 
   alias InstatusAPIConsumer.Factory
 

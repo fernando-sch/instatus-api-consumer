@@ -12,11 +12,11 @@ config :instatus_api_consumer,
   generators: [timestamp_type: :utc_datetime, binary_id: true]
 
 # Configures the endpoint
-config :instatus_api_consumer, InstatusWeb.Endpoint,
+config :instatus_api_consumer, InstatusAPIConsumerWeb.Endpoint,
   url: [host: "localhost"],
   adapter: Phoenix.Endpoint.Cowboy2Adapter,
   render_errors: [
-    formats: [json: InstatusWeb.ErrorJSON],
+    formats: [json: InstatusAPIConsumerWeb.ErrorJSON],
     layout: false
   ],
   pubsub_server: InstatusAPIConsumer.PubSub,

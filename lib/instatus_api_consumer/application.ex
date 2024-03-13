@@ -8,14 +8,14 @@ defmodule InstatusAPIConsumer.Application do
   @impl true
   def start(_type, _args) do
     children = [
-      InstatusWeb.Telemetry,
+      InstatusAPIConsumerWeb.Telemetry,
       InstatusAPIConsumer.Repo,
       {DNSCluster, query: Application.get_env(:instatus_api_consumer, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: InstatusAPIConsumer.PubSub},
       # Start a worker by calling: InstatusAPIConsumer.Worker.start_link(arg)
       # {InstatusAPIConsumer.Worker, arg},
       # Start to serve requests, typically the last entry
-      InstatusWeb.Endpoint
+      InstatusAPIConsumerWeb.Endpoint
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
@@ -28,7 +28,7 @@ defmodule InstatusAPIConsumer.Application do
   # whenever the application is updated.
   @impl true
   def config_change(changed, _new, removed) do
-    InstatusWeb.Endpoint.config_change(changed, removed)
+    InstatusAPIConsumerWeb.Endpoint.config_change(changed, removed)
     :ok
   end
 end

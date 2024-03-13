@@ -1,4 +1,4 @@
-defmodule InstatusWeb.Telemetry do
+defmodule InstatusAPIConsumerWeb.Telemetry do
   use Supervisor
   import Telemetry.Metrics
 
@@ -86,7 +86,7 @@ defmodule InstatusWeb.Telemetry do
     [
       # A module, function and arguments to be invoked periodically.
       # This function must call :telemetry.execute/3 and a metric must be added above.
-      # {InstatusWeb, :count_users, []}
+      # {InstatusAPIConsumerWeb, :count_users, []}
     ]
   end
 end
