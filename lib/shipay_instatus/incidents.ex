@@ -1,7 +1,7 @@
-defmodule ShipayInstatus.Incidents do
+defmodule InstatusAPIConsumer.Incidents do
   @moduledoc false
-  alias ShipayInstatus.Incidents.Incident
-  alias ShipayInstatus.Repo
+  alias InstatusAPIConsumer.Incidents.Incident
+  alias InstatusAPIConsumer.Repo
 
   @spec create_or_update_incident(map()) :: {:ok, Incident.t()} | {:error, Ecto.Changeset.t()}
   def create_or_update_incident(%{} = attrs) do

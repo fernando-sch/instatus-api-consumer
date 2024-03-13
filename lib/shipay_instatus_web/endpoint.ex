@@ -1,12 +1,12 @@
-defmodule ShipayInstatusWeb.Endpoint do
-  use Phoenix.Endpoint, otp_app: :shipay_instatus
+defmodule InstatusWeb.Endpoint do
+  use Phoenix.Endpoint, otp_app: :instatus_api_consumer
 
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
   # Set :encryption_salt if you would also like to encrypt it.
   @session_options [
     store: :cookie,
-    key: "_shipay_instatus_key",
+    key: "instatus_key",
     signing_salt: "ueuBCrSK",
     same_site: "Lax"
   ]
@@ -19,15 +19,15 @@ defmodule ShipayInstatusWeb.Endpoint do
   # when deploying your static files in production.
   plug Plug.Static,
     at: "/",
-    from: :shipay_instatus,
+    from: :instatus_api_consumer,
     gzip: false,
-    only: ShipayInstatusWeb.static_paths()
+    only: InstatusWeb.static_paths()
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
   if code_reloading? do
     plug Phoenix.CodeReloader
-    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :shipay_instatus
+    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :instatus_api_consumer
   end
 
   plug Plug.RequestId
@@ -41,5 +41,5 @@ defmodule ShipayInstatusWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
-  plug ShipayInstatusWeb.Router
+  plug InstatusWeb.Router
 end

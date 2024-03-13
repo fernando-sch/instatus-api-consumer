@@ -1,4 +1,4 @@
-# ShipayInstatus
+# InstatusAPIConsumer
 
 To start your Phoenix server:
 

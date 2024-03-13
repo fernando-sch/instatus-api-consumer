@@ -1,6 +1,6 @@
-defmodule ShipayInstatus do
+defmodule InstatusAPIConsumer do
   @moduledoc """
-  ShipayInstatus keeps the contexts that define your domain
+  InstatusAPIConsumer keeps the contexts that define your domain
   and business logic.
 
   Contexts are also responsible for managing your data, regardless
