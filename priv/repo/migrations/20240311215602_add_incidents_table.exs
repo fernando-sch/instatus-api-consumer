@@ -1,4 +1,4 @@
-defmodule ShipayInstatus.Repo.Migrations.AddIncidentsTable do
+defmodule InstatusAPIConsumer.Repo.Migrations.AddIncidentsTable do
   use Ecto.Migration
 
   def change do

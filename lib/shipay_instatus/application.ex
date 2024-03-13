@@ -1,4 +1,4 @@
-defmodule ShipayInstatus.Application do
+defmodule InstatusAPIConsumer.Application do
   # See https://hexdocs.pm/elixir/Application.html
   # for more information on OTP Applications
   @moduledoc false
@@ -8,19 +8,19 @@ defmodule ShipayInstatus.Application do
   @impl true
   def start(_type, _args) do
     children = [
-      ShipayInstatusWeb.Telemetry,
-      ShipayInstatus.Repo,
-      {DNSCluster, query: Application.get_env(:shipay_instatus, :dns_cluster_query) || :ignore},
-      {Phoenix.PubSub, name: ShipayInstatus.PubSub},
-      # Start a worker by calling: ShipayInstatus.Worker.start_link(arg)
-      # {ShipayInstatus.Worker, arg},
+      InstatusWeb.Telemetry,
+      InstatusAPIConsumer.Repo,
+      {DNSCluster, query: Application.get_env(:instatus_api_consumer, :dns_cluster_query) || :ignore},
+      {Phoenix.PubSub, name: InstatusAPIConsumer.PubSub},
+      # Start a worker by calling: InstatusAPIConsumer.Worker.start_link(arg)
+      # {InstatusAPIConsumer.Worker, arg},
       # Start to serve requests, typically the last entry
-      ShipayInstatusWeb.Endpoint
+      InstatusWeb.Endpoint
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
-    opts = [strategy: :one_for_one, name: ShipayInstatus.Supervisor]
+    opts = [strategy: :one_for_one, name: InstatusAPIConsumer.Supervisor]
     Supervisor.start_link(children, opts)
   end
 
@@ -28,7 +28,7 @@ defmodule ShipayInstatus.Application do
   # whenever the application is updated.
   @impl true
   def config_change(changed, _new, removed) do
-    ShipayInstatusWeb.Endpoint.config_change(changed, removed)
+    InstatusWeb.Endpoint.config_change(changed, removed)
     :ok
   end
 end

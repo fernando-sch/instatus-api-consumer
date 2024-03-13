@@ -1,4 +1,4 @@
-defmodule ShipayInstatusWeb.Telemetry do
+defmodule InstatusWeb.Telemetry do
   use Supervisor
   import Telemetry.Metrics
 
@@ -52,23 +52,23 @@ defmodule ShipayInstatusWeb.Telemetry do
       ),
 
       # Database Metrics
-      summary("shipay_instatus.repo.query.total_time",
+      summary("instatus_api_consumer.repo.query.total_time",
         unit: {:native, :millisecond},
         description: "The sum of the other measurements"
       ),
-      summary("shipay_instatus.repo.query.decode_time",
+      summary("instatus_api_consumer.repo.query.decode_time",
         unit: {:native, :millisecond},
         description: "The time spent decoding the data received from the database"
       ),
-      summary("shipay_instatus.repo.query.query_time",
+      summary("instatus_api_consumer.repo.query.query_time",
         unit: {:native, :millisecond},
         description: "The time spent executing the query"
       ),
-      summary("shipay_instatus.repo.query.queue_time",
+      summary("instatus_api_consumer.repo.query.queue_time",
         unit: {:native, :millisecond},
         description: "The time spent waiting for a database connection"
       ),
-      summary("shipay_instatus.repo.query.idle_time",
+      summary("instatus_api_consumer.repo.query.idle_time",
         unit: {:native, :millisecond},
         description:
           "The time the connection spent waiting before being checked out for the query"
@@ -86,7 +86,7 @@ defmodule ShipayInstatusWeb.Telemetry do
     [
       # A module, function and arguments to be invoked periodically.
       # This function must call :telemetry.execute/3 and a metric must be added above.
-      # {ShipayInstatusWeb, :count_users, []}
+      # {InstatusWeb, :count_users, []}
     ]
   end
 end

@@ -1,8 +1,8 @@
-defmodule ShipayInstatus.Incidents.IncidentTest do
-  use ShipayInstatus.DataCase, async: true
+defmodule InstatusAPIConsumer.Incidents.IncidentTest do
+  use InstatusAPIConsumer.DataCase, async: true
 
-  alias ShipayInstatus.Factory
-  alias ShipayInstatus.Incidents.Incident
+  alias InstatusAPIConsumer.Factory
+  alias InstatusAPIConsumer.Incidents.Incident
 
   describe "changeset/2" do
     test "validates required fields" do

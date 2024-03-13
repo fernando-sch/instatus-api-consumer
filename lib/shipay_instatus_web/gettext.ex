@@ -1,11 +1,11 @@
-defmodule ShipayInstatusWeb.Gettext do
+defmodule InstatusWeb.Gettext do
   @moduledoc """
   A module providing Internationalization with a gettext-based API.
 
   By using [Gettext](https://hexdocs.pm/gettext),
   your module gains a set of macros for translations, for example:
 
-      import ShipayInstatusWeb.Gettext
+      import InstatusWeb.Gettext
 
       # Simple translation
       gettext("Here is the string to translate")
@@ -20,5 +20,5 @@ defmodule ShipayInstatusWeb.Gettext do
 
   See the [Gettext Docs](https://hexdocs.pm/gettext) for detailed usage.
   """
-  use Gettext, otp_app: :shipay_instatus
+  use Gettext, otp_app: :instatus_api_consumer
 end

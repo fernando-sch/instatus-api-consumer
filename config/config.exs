@@ -7,19 +7,19 @@
 # General application configuration
 import Config
 
-config :shipay_instatus,
-  ecto_repos: [ShipayInstatus.Repo],
+config :instatus_api_consumer,
+  ecto_repos: [InstatusAPIConsumer.Repo],
   generators: [timestamp_type: :utc_datetime, binary_id: true]
 
 # Configures the endpoint
-config :shipay_instatus, ShipayInstatusWeb.Endpoint,
+config :instatus_api_consumer, InstatusWeb.Endpoint,
   url: [host: "localhost"],
   adapter: Phoenix.Endpoint.Cowboy2Adapter,
   render_errors: [
-    formats: [json: ShipayInstatusWeb.ErrorJSON],
+    formats: [json: InstatusWeb.ErrorJSON],
     layout: false
   ],
-  pubsub_server: ShipayInstatus.PubSub,
+  pubsub_server: InstatusAPIConsumer.PubSub,
   live_view: [signing_salt: "9Xe2Rilr"]
 
 # Configure esbuild (the version is required)

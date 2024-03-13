@@ -1,8 +1,8 @@
-defmodule ShipayInstatus.IncidentsTest do
-  use ShipayInstatus.DataCase, async: true
+defmodule InstatusAPIConsumer.IncidentsTest do
+  use InstatusAPIConsumer.DataCase, async: true
 
-  alias ShipayInstatus.Incidents
-  alias ShipayInstatus.Factory
+  alias InstatusAPIConsumer.Incidents
+  alias InstatusAPIConsumer.Factory
 
   describe "create_or_update_incident/1" do
     test "creates an incident" do
