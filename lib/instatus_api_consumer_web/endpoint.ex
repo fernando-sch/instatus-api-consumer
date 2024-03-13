@@ -1,4 +1,4 @@
-defmodule InstatusWeb.Endpoint do
+defmodule InstatusAPIConsumerWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :instatus_api_consumer
 
   # The session will be stored in the cookie and signed,
@@ -21,7 +21,7 @@ defmodule InstatusWeb.Endpoint do
     at: "/",
     from: :instatus_api_consumer,
     gzip: false,
-    only: InstatusWeb.static_paths()
+    only: InstatusAPIConsumerWeb.static_paths()
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
@@ -41,5 +41,5 @@ defmodule InstatusWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
-  plug InstatusWeb.Router
+  plug InstatusAPIConsumerWeb.Router
 end

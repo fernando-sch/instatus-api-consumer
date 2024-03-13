@@ -15,7 +15,7 @@ config :instatus_api_consumer, InstatusAPIConsumer.Repo,
 
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
-config :instatus_api_consumer, InstatusWeb.Endpoint,
+config :instatus_api_consumer, InstatusAPIConsumerWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
   secret_key_base: "Y9NIdNbiTmTUxVdjVvPt7U9VP8CIBt7HRsAaUYYTfRgVcqRIzW/aZ4yZPTRBX6kw",
   server: false
