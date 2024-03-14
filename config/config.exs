@@ -8,6 +8,7 @@
 import Config
 
 config :instatus_api_consumer,
+  namespace: InstatusAPIConsumer,
   ecto_repos: [InstatusAPIConsumer.Repo],
   generators: [timestamp_type: :utc_datetime, binary_id: true]
 
