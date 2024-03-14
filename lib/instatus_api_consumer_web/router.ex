@@ -7,5 +7,9 @@ defmodule InstatusAPIConsumerWeb.Router do
 
   scope "/api", InstatusAPIConsumerWeb do
     pipe_through :api
+
+    scope("/webhooks", Webhooks, as: :webhooks) do
+      post("/incidents", IncidentController, :incident)
+    end
   end
 end

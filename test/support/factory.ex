@@ -37,7 +37,7 @@ defmodule InstatusAPIConsumer.Factory do
   defp get_incident_status,
     do: Enum.random(["INVESTIGATING", "IDENTIFIED", "MONITORING", "RESOLVED"])
 
-  def incident_webhook_payload do
+  def incident_webhook_payload_factory do
     stringified_utc_now = NaiveDateTime.utc_now() |> NaiveDateTime.to_string()
 
     %{
