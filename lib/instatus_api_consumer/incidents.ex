@@ -5,7 +5,7 @@ defmodule InstatusAPIConsumer.Incidents do
 
   @spec create_or_update_incident(map()) :: {:ok, Incident.t()} | {:error, Ecto.Changeset.t()}
   def create_or_update_incident(%{} = attrs) do
-    incident_id = Map.get(attrs, :id, "") || Map.get(attrs, "id", "")
+    incident_id = attrs[:id] || attrs["id"] || ""
 
     case Repo.get(Incident, incident_id) do
       nil -> %Incident{}
