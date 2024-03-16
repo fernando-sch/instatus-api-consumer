@@ -36,6 +36,7 @@ defmodule InstatusAPIConsumer.Incidents.Incident do
       field(:incident_id, :string)
       field(:body, :string)
       field(:status, :string)
+      field(:markdown, :string)
       field(:created_at, :utc_datetime)
       field(:updated_at, :utc_datetime)
     end
@@ -54,7 +55,7 @@ defmodule InstatusAPIConsumer.Incidents.Incident do
 
   def incident_update_changeset(%__MODULE__.Update{} = incident_update, %{} = attrs) do
     required_fields = [:incident_id, :status, :created_at, :updated_at]
-    optional_fields = [:body]
+    optional_fields = [:body, :markdown]
 
     incident_update
     |> cast(attrs, required_fields ++ optional_fields)
