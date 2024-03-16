@@ -22,13 +22,13 @@ defmodule InstatusAPIConsumer.Incidents.IncidentTest do
 
     test "returns valid changeset" do
       attrs = Factory.params_for(:incident)
-      attrs = Map.delete(attrs, :incident_updates)
       changeset = Incident.changeset(%Incident{}, attrs)
 
       assert changeset.valid?
       assert changeset.changes.id == attrs.id
       assert changeset.changes.name == attrs.name
       assert changeset.changes.status == attrs.status
+      assert length(changeset.changes.incident_updates) == 2
     end
   end
 end

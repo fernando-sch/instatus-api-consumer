@@ -29,6 +29,7 @@ defmodule InstatusAPIConsumer.Factory do
       incident_id: sequence("id_"),
       body: sequence("body_"),
       status: get_notification_status(),
+      markdown: sequence("markdown_"),
       created_at: stringified_utc_now,
       updated_at: stringified_utc_now
     }
@@ -66,6 +67,7 @@ defmodule InstatusAPIConsumer.Factory do
           "incident_id" => sequence("incident_id_"),
           "body" => sequence("body_"),
           "status" => get_notification_status(),
+          "markdown" => sequence("markdown_"),
           "created_at" => stringified_utc_now,
           "updated_at" => stringified_utc_now,
         }],
