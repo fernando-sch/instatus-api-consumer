@@ -44,7 +44,7 @@ defmodule InstatusAPIConsumer.Factory do
     %{
       "meta" => %{
         "unsubscribe" => sequence("https://unsub_"),
-        "documentation" => "https://docs_",
+        "documentation" => "https://docs_"
       },
       "page" => %{
         "id" => sequence("page_id_"),
@@ -62,16 +62,18 @@ defmodule InstatusAPIConsumer.Factory do
         "created_at" => stringified_utc_now,
         "resolved_at" => stringified_utc_now,
         "updated_at" => stringified_utc_now,
-        "incident_updates" => [%{
-          "id" => sequence("incident_update_id_"),
-          "incident_id" => sequence("incident_id_"),
-          "body" => sequence("body_"),
-          "status" => get_notification_status(),
-          "markdown" => sequence("markdown_"),
-          "created_at" => stringified_utc_now,
-          "updated_at" => stringified_utc_now,
-        }],
-      },
+        "incident_updates" => [
+          %{
+            "id" => sequence("incident_update_id_"),
+            "incident_id" => sequence("incident_id_"),
+            "body" => sequence("body_"),
+            "status" => get_notification_status(),
+            "markdown" => sequence("markdown_"),
+            "created_at" => stringified_utc_now,
+            "updated_at" => stringified_utc_now
+          }
+        ]
+      }
     }
   end
 
@@ -81,7 +83,7 @@ defmodule InstatusAPIConsumer.Factory do
     %{
       "meta" => %{
         "unsubscribe" => sequence("https://unsub_"),
-        "documentation" => "https://docs_",
+        "documentation" => "https://docs_"
       },
       "page" => %{
         "id" => sequence("page_id_"),
@@ -100,15 +102,17 @@ defmodule InstatusAPIConsumer.Factory do
         "created_at" => stringified_utc_now,
         "resolved_at" => stringified_utc_now,
         "updated_at" => stringified_utc_now,
-        "maintenance_updates" => [%{
-          "id" => sequence("incident_update_id_"),
-          "maintenance_id" => sequence("incident_id_"),
-          "body" => sequence("body_"),
-          "status" => get_notification_status(),
-          "created_at" => stringified_utc_now,
-          "updated_at" => stringified_utc_now,
-        }],
-      },
+        "maintenance_updates" => [
+          %{
+            "id" => sequence("incident_update_id_"),
+            "maintenance_id" => sequence("incident_id_"),
+            "body" => sequence("body_"),
+            "status" => get_notification_status(),
+            "created_at" => stringified_utc_now,
+            "updated_at" => stringified_utc_now
+          }
+        ]
+      }
     }
   end
 
@@ -118,7 +122,7 @@ defmodule InstatusAPIConsumer.Factory do
     %{
       "meta" => %{
         "unsubscribe" => sequence("https://unsub_"),
-        "documentation" => "https://docs_",
+        "documentation" => "https://docs_"
       },
       "page" => %{
         "id" => sequence("page_id_"),
@@ -128,15 +132,15 @@ defmodule InstatusAPIConsumer.Factory do
       },
       "component_update" => %{
         "component_id" => sequence("component_id_"),
-        "new_status" =>  get_notification_status(),
-        "created_at" => stringified_utc_now,
+        "new_status" => get_notification_status(),
+        "created_at" => stringified_utc_now
       },
       "component" => %{
         "id" => sequence("component_id_"),
         "name" => sequence("name_"),
         "status" => get_notification_status(),
-        "created_at" => stringified_utc_now,
-      },
+        "created_at" => stringified_utc_now
+      }
     }
   end
 end

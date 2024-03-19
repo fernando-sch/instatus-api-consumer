@@ -33,4 +33,11 @@ defmodule InstatusAPIConsumer.IncidentsTest do
              }
     end
   end
+
+  describe "list_incidents/0" do
+    test "retuns a list of incidents" do
+      incidents = Factory.insert_list(4, :incident)
+      assert Incidents.list_incidents() == incidents
+    end
+  end
 end

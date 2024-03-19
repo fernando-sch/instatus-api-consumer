@@ -1,5 +1,7 @@
 defmodule InstatusAPIConsumer.Incidents do
   @moduledoc false
+  import Ecto.Query
+
   alias InstatusAPIConsumer.Incidents.Incident
   alias InstatusAPIConsumer.Repo
 
@@ -13,5 +15,11 @@ defmodule InstatusAPIConsumer.Incidents do
     end
     |> Incident.changeset(attrs)
     |> Repo.insert_or_update()
+  end
+
+  @spec list_incidents() :: list(Incident)
+  def list_incidents do
+    query = from(i in Incident, order_by: i.created_at)
+    Repo.all(query)
   end
 end
