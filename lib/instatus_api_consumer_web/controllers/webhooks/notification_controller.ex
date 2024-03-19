@@ -26,7 +26,10 @@ defmodule InstatusAPIConsumerWeb.Webhooks.NotificationController do
   end
 
   # Component notification
-  def notification(conn, %{"component_update" => component_update_params, "component" => component_params}) do
+  def notification(conn, %{
+        "component_update" => component_update_params,
+        "component" => component_params
+      }) do
     Logger.info("Component update notification:")
     IO.inspect(component_update_params)
     Logger.info("Component notification:")
