@@ -11,5 +11,7 @@ defmodule InstatusAPIConsumerWeb.Router do
     scope("/webhooks", Webhooks, as: :webhooks) do
       post("/notification", NotificationController, :notification)
     end
+
+    resources("/incidents", Incidents.IncidentController, only: [:index])
   end
 end
