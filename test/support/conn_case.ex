@@ -23,6 +23,7 @@ defmodule InstatusAPIConsumerWeb.ConnCase do
       @endpoint InstatusAPIConsumerWeb.Endpoint
 
       use InstatusAPIConsumerWeb, :verified_routes
+      use Oban.Testing, repo: InstatusAPIConsumer.Repo
 
       # Import conveniences for testing with connections
       import Plug.Conn
