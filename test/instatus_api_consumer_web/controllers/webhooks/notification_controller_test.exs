@@ -1,14 +1,15 @@
 defmodule InstatusAPIConsumerWeb.Webhooks.NotificationControllerTest do
   use InstatusAPIConsumerWeb.ConnCase, async: true
 
-  alias InstatusAPIConsumer.Incidents.CreateIncidentWorker
+  alias InstatusAPIConsumer.Repo
   alias InstatusAPIConsumer.Factory
+  alias InstatusAPIConsumer.Incidents.Incident
 
   describe "notification/2" do
     test "returns 204 no content for incident notification" do
       payload = Factory.build(:incident_webhook_payload)
       conn = post(build_conn(), "/api/webhooks/notification", payload)
-      assert_enqueued(worker: CreateIncidentWorker, args: payload["incident"])
+      assert Repo.exists?(Incident, id: payload["incident"]["id"])
       assert response(conn, 204) == ""
     end
 

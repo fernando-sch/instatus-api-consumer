@@ -5,16 +5,16 @@ defmodule InstatusAPIConsumerWeb.Webhooks.NotificationController do
 
   action_fallback InstatusAPIConsumerWeb.FallbackController
 
-  alias InstatusAPIConsumer.Incidents.CreateIncidentWorker
+  alias InstatusAPIConsumer.Incidents
 
   # Incident notification
   def notification(conn, %{"incident" => incident_params}) do
     Logger.info("Incident notification:")
     IO.inspect(incident_params)
 
-    CreateIncidentWorker.enqueue(incident_params)
-
-    send_resp(conn, :no_content, "")
+    with {:ok, _} <- Incidents.create_or_update_incident(incident_params) do
+      send_resp(conn, :no_content, "")
+    end
   end
 
   # Maintenance notification

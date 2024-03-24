@@ -19,7 +19,6 @@ defmodule InstatusAPIConsumer.DataCase do
   using do
     quote do
       alias InstatusAPIConsumer.Repo
-      use Oban.Testing, repo: InstatusAPIConsumer.Repo
 
       import Ecto
       import Ecto.Changeset

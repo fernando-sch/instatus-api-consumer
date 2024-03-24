@@ -13,9 +13,6 @@ config :instatus_api_consumer, InstatusAPIConsumer.Repo,
   pool: Ecto.Adapters.SQL.Sandbox,
   pool_size: 10
 
-# Configures Oban for tests
-config :instatus_api_consumer, Oban, testing: :manual
-
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
 config :instatus_api_consumer, InstatusAPIConsumerWeb.Endpoint,
