@@ -7,6 +7,8 @@ defmodule InstatusAPIConsumer.Application do
 
   @impl true
   def start(_type, _args) do
+    Oban.Telemetry.attach_default_logger()
+
     children = [
       InstatusAPIConsumerWeb.Telemetry,
       InstatusAPIConsumer.Repo,
@@ -16,7 +18,8 @@ defmodule InstatusAPIConsumer.Application do
       # Start a worker by calling: InstatusAPIConsumer.Worker.start_link(arg)
       # {InstatusAPIConsumer.Worker, arg},
       # Start to serve requests, typically the last entry
-      InstatusAPIConsumerWeb.Endpoint
+      InstatusAPIConsumerWeb.Endpoint,
+      {Oban, Application.fetch_env!(:instatus_api_consumer, Oban)}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

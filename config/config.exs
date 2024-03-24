@@ -23,6 +23,15 @@ config :instatus_api_consumer, InstatusAPIConsumerWeb.Endpoint,
   pubsub_server: InstatusAPIConsumer.PubSub,
   live_view: [signing_salt: "9Xe2Rilr"]
 
+# Configures Oban
+config :instatus_api_consumer, Oban,
+  repo: InstatusAPIConsumer.Repo,
+  plugins: [
+    {Oban.Plugins.Pruner, max_age: 60 * 60 * 24 * 7},
+    {Oban.Plugins.Lifeline, rescue_after: :timer.minutes(30)}
+  ],
+  queues: [default: 10]
+
 # Configure esbuild (the version is required)
 config :esbuild,
   version: "0.17.11",

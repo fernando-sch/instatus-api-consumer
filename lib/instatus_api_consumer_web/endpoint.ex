@@ -23,6 +23,9 @@ defmodule InstatusAPIConsumerWeb.Endpoint do
     gzip: false,
     only: InstatusAPIConsumerWeb.static_paths()
 
+  plug CORSPlug,
+    origin: ["http://localhost:3000"]
+
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
   if code_reloading? do
