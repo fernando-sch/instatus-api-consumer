@@ -1,6 +1,4 @@
-version: "3"
-x-service-defaults:
-  &service-defaults
+x-service-defaults: &service-defaults
   build:
     context: .
   volumes:
@@ -19,7 +17,7 @@ services:
       - DATABASE_HOST=db
       - DATABASE_USERNAME=postgres
       - DATABASE_PASSWORD=postgres
-      - DATABASE_NAME=instatus_api_consumer
+      - DATABASE_NAME=instatus_consumer
 
   test:
     <<: *service-defaults
@@ -29,7 +27,7 @@ services:
       - DATABASE_HOST=db
       - DATABASE_USERNAME=postgres
       - DATABASE_PASSWORD=postgres
-      - DATABASE_NAME=instatus_api_consumer_test
+      - DATABASE_NAME=instatus_consumer_test
 
   db:
     image: postgres:16-alpine

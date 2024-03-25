@@ -1,4 +1,4 @@
-defmodule InstatusAPIConsumerWeb.Telemetry do
+defmodule InstatusConsumerWeb.Telemetry do
   use Supervisor
   import Telemetry.Metrics
 
@@ -52,23 +52,23 @@ defmodule InstatusAPIConsumerWeb.Telemetry do
       ),
 
       # Database Metrics
-      summary("instatus_api_consumer.repo.query.total_time",
+      summary("instatus_consumer.repo.query.total_time",
         unit: {:native, :millisecond},
         description: "The sum of the other measurements"
       ),
-      summary("instatus_api_consumer.repo.query.decode_time",
+      summary("instatus_consumer.repo.query.decode_time",
         unit: {:native, :millisecond},
         description: "The time spent decoding the data received from the database"
       ),
-      summary("instatus_api_consumer.repo.query.query_time",
+      summary("instatus_consumer.repo.query.query_time",
         unit: {:native, :millisecond},
         description: "The time spent executing the query"
       ),
-      summary("instatus_api_consumer.repo.query.queue_time",
+      summary("instatus_consumer.repo.query.queue_time",
         unit: {:native, :millisecond},
         description: "The time spent waiting for a database connection"
       ),
-      summary("instatus_api_consumer.repo.query.idle_time",
+      summary("instatus_consumer.repo.query.idle_time",
         unit: {:native, :millisecond},
         description:
           "The time the connection spent waiting before being checked out for the query"
@@ -86,7 +86,7 @@ defmodule InstatusAPIConsumerWeb.Telemetry do
     [
       # A module, function and arguments to be invoked periodically.
       # This function must call :telemetry.execute/3 and a metric must be added above.
-      # {InstatusAPIConsumerWeb, :count_users, []}
+      # {InstatusConsumerWeb, :count_users, []}
     ]
   end
 end

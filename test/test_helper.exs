@@ -1,2 +1,2 @@
 ExUnit.start()
-Ecto.Adapters.SQL.Sandbox.mode(InstatusAPIConsumer.Repo, :manual)
+Ecto.Adapters.SQL.Sandbox.mode(InstatusConsumer.Repo, :manual)

@@ -5,7 +5,7 @@ import Config
 # The MIX_TEST_PARTITION environment variable can be used
 # to provide built-in test partitioning in CI environment.
 # Run `mix help test` for more information.
-config :instatus_api_consumer, InstatusAPIConsumer.Repo,
+config :instatus_consumer, InstatusConsumer.Repo,
   username: System.get_env("DATABASE_USERNAME"),
   password: System.get_env("DATABASE_PASSWORD"),
   hostname: System.get_env("DATABASE_HOST"),
@@ -14,11 +14,11 @@ config :instatus_api_consumer, InstatusAPIConsumer.Repo,
   pool_size: 10
 
 # Configures Oban for tests
-config :instatus_api_consumer, Oban, testing: :manual
+config :instatus_consumer, Oban, testing: :manual
 
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
-config :instatus_api_consumer, InstatusAPIConsumerWeb.Endpoint,
+config :instatus_consumer, InstatusConsumerWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
   secret_key_base: "Y9NIdNbiTmTUxVdjVvPt7U9VP8CIBt7HRsAaUYYTfRgVcqRIzW/aZ4yZPTRBX6kw",
   server: false

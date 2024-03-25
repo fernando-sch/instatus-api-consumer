@@ -1,6 +1,6 @@
-defmodule InstatusAPIConsumer do
+defmodule InstatusConsumer do
   @moduledoc """
-  InstatusAPIConsumer keeps the contexts that define your domain
+  InstatusConsumer keeps the contexts that define your domain
   and business logic.
 
   Contexts are also responsible for managing your data, regardless

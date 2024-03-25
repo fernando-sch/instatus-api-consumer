@@ -1,9 +1,9 @@
-defmodule InstatusAPIConsumer.Incidents do
+defmodule InstatusConsumer.Incidents do
   @moduledoc false
   import Ecto.Query
 
-  alias InstatusAPIConsumer.Incidents.Incident
-  alias InstatusAPIConsumer.Repo
+  alias InstatusConsumer.Incidents.Incident
+  alias InstatusConsumer.Repo
 
   @spec create_or_update_incident(map()) :: {:ok, Incident.t()} | {:error, Ecto.Changeset.t()}
   def create_or_update_incident(%{} = attrs) do

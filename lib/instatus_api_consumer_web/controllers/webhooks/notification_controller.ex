@@ -1,11 +1,11 @@
-defmodule InstatusAPIConsumerWeb.Webhooks.NotificationController do
-  use InstatusAPIConsumerWeb, :controller
+defmodule InstatusConsumerWeb.Webhooks.NotificationController do
+  use InstatusConsumerWeb, :controller
 
   require Logger
 
-  action_fallback InstatusAPIConsumerWeb.FallbackController
+  action_fallback InstatusConsumerWeb.FallbackController
 
-  alias InstatusAPIConsumer.Incidents.CreateIncidentWorker
+  alias InstatusConsumer.Incidents.CreateIncidentWorker
 
   # Incident notification
   def notification(conn, %{"incident" => incident_params}) do

@@ -7,25 +7,25 @@
 # General application configuration
 import Config
 
-config :instatus_api_consumer,
-  namespace: InstatusAPIConsumer,
-  ecto_repos: [InstatusAPIConsumer.Repo],
+config :instatus_consumer,
+  namespace: InstatusConsumer,
+  ecto_repos: [InstatusConsumer.Repo],
   generators: [timestamp_type: :utc_datetime, binary_id: true]
 
 # Configures the endpoint
-config :instatus_api_consumer, InstatusAPIConsumerWeb.Endpoint,
+config :instatus_consumer, InstatusConsumerWeb.Endpoint,
   url: [host: "localhost"],
   adapter: Phoenix.Endpoint.Cowboy2Adapter,
   render_errors: [
-    formats: [json: InstatusAPIConsumerWeb.ErrorJSON],
+    formats: [json: InstatusConsumerWeb.ErrorJSON],
     layout: false
   ],
-  pubsub_server: InstatusAPIConsumer.PubSub,
+  pubsub_server: InstatusConsumer.PubSub,
   live_view: [signing_salt: "9Xe2Rilr"]
 
 # Configures Oban
-config :instatus_api_consumer, Oban,
-  repo: InstatusAPIConsumer.Repo,
+config :instatus_consumer, Oban,
+  repo: InstatusConsumer.Repo,
   plugins: [
     {Oban.Plugins.Pruner, max_age: 60 * 60 * 24 * 7},
     {Oban.Plugins.Lifeline, rescue_after: :timer.minutes(30)}

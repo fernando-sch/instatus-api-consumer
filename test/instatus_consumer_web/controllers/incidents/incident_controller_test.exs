@@ -1,7 +1,7 @@
-defmodule InstatusAPIConsumerWeb.Incidents.IncidentControllerTest do
-  use InstatusAPIConsumerWeb.ConnCase, async: true
+defmodule InstatusConsumerWeb.Incidents.IncidentControllerTest do
+  use InstatusConsumerWeb.ConnCase, async: true
 
-  alias InstatusAPIConsumer.Factory
+  alias InstatusConsumer.Factory
 
   describe "index/2" do
     test "returns 200 listing all incidents" do

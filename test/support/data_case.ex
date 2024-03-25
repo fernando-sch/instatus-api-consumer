@@ -1,4 +1,4 @@
-defmodule InstatusAPIConsumer.DataCase do
+defmodule InstatusConsumer.DataCase do
   @moduledoc """
   This module defines the setup for tests requiring
   access to the application's data layer.
@@ -10,7 +10,7 @@ defmodule InstatusAPIConsumer.DataCase do
   we enable the SQL sandbox, so changes done to the database
   are reverted at the end of every test. If you are using
   PostgreSQL, you can even run database tests asynchronously
-  by setting `use InstatusAPIConsumer.DataCase, async: true`, although
+  by setting `use InstatusConsumer.DataCase, async: true`, although
   this option is not recommended for other databases.
   """
 
@@ -18,18 +18,18 @@ defmodule InstatusAPIConsumer.DataCase do
 
   using do
     quote do
-      alias InstatusAPIConsumer.Repo
-      use Oban.Testing, repo: InstatusAPIConsumer.Repo
+      alias InstatusConsumer.Repo
+      use Oban.Testing, repo: InstatusConsumer.Repo
 
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
-      import InstatusAPIConsumer.DataCase
+      import InstatusConsumer.DataCase
     end
   end
 
   setup tags do
-    InstatusAPIConsumer.DataCase.setup_sandbox(tags)
+    InstatusConsumer.DataCase.setup_sandbox(tags)
     :ok
   end
 
@@ -38,7 +38,7 @@ defmodule InstatusAPIConsumer.DataCase do
   """
   def setup_sandbox(tags) do
     pid =
-      Ecto.Adapters.SQL.Sandbox.start_owner!(InstatusAPIConsumer.Repo, shared: not tags[:async])
+      Ecto.Adapters.SQL.Sandbox.start_owner!(InstatusConsumer.Repo, shared: not tags[:async])
 
     on_exit(fn -> Ecto.Adapters.SQL.Sandbox.stop_owner(pid) end)
   end

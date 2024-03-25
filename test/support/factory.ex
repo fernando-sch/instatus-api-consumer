@@ -1,10 +1,10 @@
-defmodule InstatusAPIConsumer.Factory do
+defmodule InstatusConsumer.Factory do
   @moduledoc """
     Factory of fixtures using ex-machina lib, for tests
   """
-  use ExMachina.Ecto, repo: InstatusAPIConsumer.Repo
+  use ExMachina.Ecto, repo: InstatusConsumer.Repo
 
-  alias InstatusAPIConsumer.Incidents.Incident
+  alias InstatusConsumer.Incidents.Incident
 
   def incident_factory do
     stringified_utc_now = NaiveDateTime.utc_now() |> NaiveDateTime.to_string()

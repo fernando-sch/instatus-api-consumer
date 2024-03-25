@@ -1,12 +1,12 @@
-defmodule InstatusAPIConsumerWeb do
+defmodule InstatusConsumerWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, components, channels, and so on.
 
   This can be used in your application as:
 
-      use InstatusAPIConsumerWeb, :controller
-      use InstatusAPIConsumerWeb, :html
+      use InstatusConsumerWeb, :controller
+      use InstatusConsumerWeb, :html
 
   The definitions below will be executed for every controller,
   component, etc, so keep them short and clean, focused
@@ -39,10 +39,10 @@ defmodule InstatusAPIConsumerWeb do
     quote do
       use Phoenix.Controller,
         formats: [:html, :json],
-        layouts: [html: InstatusAPIConsumerWeb.Layouts]
+        layouts: [html: InstatusConsumerWeb.Layouts]
 
       import Plug.Conn
-      import InstatusAPIConsumerWeb.Gettext
+      import InstatusConsumerWeb.Gettext
 
       unquote(verified_routes())
     end
@@ -51,9 +51,9 @@ defmodule InstatusAPIConsumerWeb do
   def verified_routes do
     quote do
       use Phoenix.VerifiedRoutes,
-        endpoint: InstatusAPIConsumerWeb.Endpoint,
-        router: InstatusAPIConsumerWeb.Router,
-        statics: InstatusAPIConsumerWeb.static_paths()
+        endpoint: InstatusConsumerWeb.Endpoint,
+        router: InstatusConsumerWeb.Router,
+        statics: InstatusConsumerWeb.static_paths()
     end
   end
 

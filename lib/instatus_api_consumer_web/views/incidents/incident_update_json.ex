@@ -1,5 +1,5 @@
-defmodule InstatusAPIConsumerWeb.Incidents.IncidentUpdateJSON do
-  alias InstatusAPIConsumer.Incidents.Incident
+defmodule InstatusConsumerWeb.Incidents.IncidentUpdateJSON do
+  alias InstatusConsumer.Incidents.Incident
 
   def data(%Incident.Update{} = incident_update) do
     %{

@@ -1,4 +1,4 @@
-defmodule InstatusAPIConsumerWeb.ConnCase do
+defmodule InstatusConsumerWeb.ConnCase do
   @moduledoc """
   This module defines the test case to be used by
   tests that require setting up a connection.
@@ -11,7 +11,7 @@ defmodule InstatusAPIConsumerWeb.ConnCase do
   we enable the SQL sandbox, so changes done to the database
   are reverted at the end of every test. If you are using
   PostgreSQL, you can even run database tests asynchronously
-  by setting `use InstatusAPIConsumerWeb.ConnCase, async: true`, although
+  by setting `use InstatusConsumerWeb.ConnCase, async: true`, although
   this option is not recommended for other databases.
   """
 
@@ -20,20 +20,20 @@ defmodule InstatusAPIConsumerWeb.ConnCase do
   using do
     quote do
       # The default endpoint for testing
-      @endpoint InstatusAPIConsumerWeb.Endpoint
+      @endpoint InstatusConsumerWeb.Endpoint
 
-      use InstatusAPIConsumerWeb, :verified_routes
-      use Oban.Testing, repo: InstatusAPIConsumer.Repo
+      use InstatusConsumerWeb, :verified_routes
+      use Oban.Testing, repo: InstatusConsumer.Repo
 
       # Import conveniences for testing with connections
       import Plug.Conn
       import Phoenix.ConnTest
-      import InstatusAPIConsumerWeb.ConnCase
+      import InstatusConsumerWeb.ConnCase
     end
   end
 
   setup tags do
-    InstatusAPIConsumer.DataCase.setup_sandbox(tags)
+    InstatusConsumer.DataCase.setup_sandbox(tags)
     {:ok, conn: Phoenix.ConnTest.build_conn()}
   end
 end

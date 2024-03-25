@@ -1,7 +1,7 @@
 import Config
 
 # Configure your database
-config :instatus_api_consumer, InstatusAPIConsumer.Repo,
+config :instatus_consumer, InstatusConsumer.Repo,
   username: System.get_env("DATABASE_USERNAME"),
   password: System.get_env("DATABASE_PASSWORD"),
   hostname: System.get_env("DATABASE_HOST"),
@@ -16,7 +16,7 @@ config :instatus_api_consumer, InstatusAPIConsumer.Repo,
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we can use it
 # to bundle .js and .css sources.
-config :instatus_api_consumer, InstatusAPIConsumerWeb.Endpoint,
+config :instatus_consumer, InstatusConsumerWeb.Endpoint,
   # Binding to loopback ipv4 address prevents access from other machines.
   # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
   http: [ip: {0, 0, 0, 0}, port: 4000],
@@ -52,7 +52,7 @@ config :instatus_api_consumer, InstatusAPIConsumerWeb.Endpoint,
 # different ports.
 
 # Enable dev routes for dashboard and mailbox
-config :instatus_api_consumer, dev_routes: true
+config :instatus_consumer, dev_routes: true
 
 # Do not include metadata nor timestamps in development logs
 config :logger, :console, format: "[$level] $message\n"

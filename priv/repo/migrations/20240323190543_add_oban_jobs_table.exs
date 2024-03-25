@@ -1,4 +1,4 @@
-defmodule InstatusAPIConsumer.Repo.Migrations.AddObanJobsTable do
+defmodule InstatusConsumer.Repo.Migrations.AddObanJobsTable do
   use Ecto.Migration
 
   def up do
