@@ -1,5 +1,5 @@
-defmodule InstatusAPIConsumerWeb.Endpoint do
-  use Phoenix.Endpoint, otp_app: :instatus_api_consumer
+defmodule InstatusConsumerWeb.Endpoint do
+  use Phoenix.Endpoint, otp_app: :instatus_consumer
 
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
@@ -19,9 +19,9 @@ defmodule InstatusAPIConsumerWeb.Endpoint do
   # when deploying your static files in production.
   plug Plug.Static,
     at: "/",
-    from: :instatus_api_consumer,
+    from: :instatus_consumer,
     gzip: false,
-    only: InstatusAPIConsumerWeb.static_paths()
+    only: InstatusConsumerWeb.static_paths()
 
   plug CORSPlug,
     origin: ["http://localhost:3000"]
@@ -30,7 +30,7 @@ defmodule InstatusAPIConsumerWeb.Endpoint do
   # :code_reloader configuration of your endpoint.
   if code_reloading? do
     plug Phoenix.CodeReloader
-    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :instatus_api_consumer
+    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :instatus_consumer
   end
 
   plug Plug.RequestId
@@ -44,5 +44,5 @@ defmodule InstatusAPIConsumerWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
-  plug InstatusAPIConsumerWeb.Router
+  plug InstatusConsumerWeb.Router
 end

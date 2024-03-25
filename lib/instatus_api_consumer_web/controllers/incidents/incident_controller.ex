@@ -1,9 +1,9 @@
-defmodule InstatusAPIConsumerWeb.Incidents.IncidentController do
-  use InstatusAPIConsumerWeb, :controller
+defmodule InstatusConsumerWeb.Incidents.IncidentController do
+  use InstatusConsumerWeb, :controller
 
-  action_fallback InstatusAPIConsumerWeb.FallbackController
+  action_fallback InstatusConsumerWeb.FallbackController
 
-  alias InstatusAPIConsumer.Incidents
+  alias InstatusConsumer.Incidents
 
   def index(conn, _) do
     incidents = Incidents.list_incidents()

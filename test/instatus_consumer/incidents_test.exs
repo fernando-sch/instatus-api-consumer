@@ -1,8 +1,8 @@
-defmodule InstatusAPIConsumer.IncidentsTest do
-  use InstatusAPIConsumer.DataCase, async: true
+defmodule InstatusConsumer.IncidentsTest do
+  use InstatusConsumer.DataCase, async: true
 
-  alias InstatusAPIConsumer.Incidents
-  alias InstatusAPIConsumer.Factory
+  alias InstatusConsumer.Incidents
+  alias InstatusConsumer.Factory
 
   describe "create_or_update_incident/1" do
     test "creates an incident" do

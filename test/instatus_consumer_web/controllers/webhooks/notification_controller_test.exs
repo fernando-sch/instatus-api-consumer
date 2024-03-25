@@ -1,8 +1,8 @@
-defmodule InstatusAPIConsumerWeb.Webhooks.NotificationControllerTest do
-  use InstatusAPIConsumerWeb.ConnCase, async: true
+defmodule InstatusConsumerWeb.Webhooks.NotificationControllerTest do
+  use InstatusConsumerWeb.ConnCase, async: true
 
-  alias InstatusAPIConsumer.Incidents.CreateIncidentWorker
-  alias InstatusAPIConsumer.Factory
+  alias InstatusConsumer.Incidents.CreateIncidentWorker
+  alias InstatusConsumer.Factory
 
   describe "notification/2" do
     test "returns 204 no content for incident notification" do

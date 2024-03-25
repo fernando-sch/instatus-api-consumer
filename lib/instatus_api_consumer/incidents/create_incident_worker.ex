@@ -1,8 +1,8 @@
-defmodule InstatusAPIConsumer.Incidents.CreateIncidentWorker do
+defmodule InstatusConsumer.Incidents.CreateIncidentWorker do
   use Oban.Worker, queue: :default
 
-  alias InstatusAPIConsumer.Incidents
-  alias InstatusAPIConsumer.Incidents.Incident
+  alias InstatusConsumer.Incidents
+  alias InstatusConsumer.Incidents.Incident
 
   @spec enqueue(map()) :: {:ok, Oban.Job.t()} | {:error, Oban.Job.changeset() | term()}
   def enqueue(%{} = args) do

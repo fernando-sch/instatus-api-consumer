@@ -1,4 +1,4 @@
-defmodule InstatusAPIConsumer.Incidents.Incident do
+defmodule InstatusConsumer.Incidents.Incident do
   @moduledoc false
   use Ecto.Schema
   import Ecto.Changeset

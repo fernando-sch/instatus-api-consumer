@@ -1,6 +1,6 @@
-defmodule InstatusAPIConsumerWeb.Incidents.IncidentJSON do
-  alias InstatusAPIConsumer.Incidents.Incident
-  alias InstatusAPIConsumerWeb.Incidents.IncidentUpdateJSON
+defmodule InstatusConsumerWeb.Incidents.IncidentJSON do
+  alias InstatusConsumer.Incidents.Incident
+  alias InstatusConsumerWeb.Incidents.IncidentUpdateJSON
 
   def index(%{incidents: incidents}) do
     %{data: for(incident <- incidents, do: data(incident))}

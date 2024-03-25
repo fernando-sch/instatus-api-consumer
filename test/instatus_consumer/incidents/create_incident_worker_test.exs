@@ -1,8 +1,8 @@
-defmodule InstatusAPIConsumer.Incidents.CreateIncidentWorkerTest do
-  use InstatusAPIConsumer.DataCase, async: true
+defmodule InstatusConsumer.Incidents.CreateIncidentWorkerTest do
+  use InstatusConsumer.DataCase, async: true
 
-  alias InstatusAPIConsumer.Factory
-  alias InstatusAPIConsumer.Incidents.CreateIncidentWorker
+  alias InstatusConsumer.Factory
+  alias InstatusConsumer.Incidents.CreateIncidentWorker
 
   describe "enqueue/1" do
     test "inserts a new oban job" do

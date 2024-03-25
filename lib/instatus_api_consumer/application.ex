@@ -1,4 +1,4 @@
-defmodule InstatusAPIConsumer.Application do
+defmodule InstatusConsumer.Application do
   # See https://hexdocs.pm/elixir/Application.html
   # for more information on OTP Applications
   @moduledoc false
@@ -10,21 +10,21 @@ defmodule InstatusAPIConsumer.Application do
     Oban.Telemetry.attach_default_logger()
 
     children = [
-      InstatusAPIConsumerWeb.Telemetry,
-      InstatusAPIConsumer.Repo,
+      InstatusConsumerWeb.Telemetry,
+      InstatusConsumer.Repo,
       {DNSCluster,
-       query: Application.get_env(:instatus_api_consumer, :dns_cluster_query) || :ignore},
-      {Phoenix.PubSub, name: InstatusAPIConsumer.PubSub},
-      # Start a worker by calling: InstatusAPIConsumer.Worker.start_link(arg)
-      # {InstatusAPIConsumer.Worker, arg},
+       query: Application.get_env(:instatus_consumer, :dns_cluster_query) || :ignore},
+      {Phoenix.PubSub, name: InstatusConsumer.PubSub},
+      # Start a worker by calling: InstatusConsumer.Worker.start_link(arg)
+      # {InstatusConsumer.Worker, arg},
       # Start to serve requests, typically the last entry
-      InstatusAPIConsumerWeb.Endpoint,
-      {Oban, Application.fetch_env!(:instatus_api_consumer, Oban)}
+      InstatusConsumerWeb.Endpoint,
+      {Oban, Application.fetch_env!(:instatus_consumer, Oban)}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
-    opts = [strategy: :one_for_one, name: InstatusAPIConsumer.Supervisor]
+    opts = [strategy: :one_for_one, name: InstatusConsumer.Supervisor]
     Supervisor.start_link(children, opts)
   end
 
@@ -32,7 +32,7 @@ defmodule InstatusAPIConsumer.Application do
   # whenever the application is updated.
   @impl true
   def config_change(changed, _new, removed) do
-    InstatusAPIConsumerWeb.Endpoint.config_change(changed, removed)
+    InstatusConsumerWeb.Endpoint.config_change(changed, removed)
     :ok
   end
 end

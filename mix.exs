@@ -1,9 +1,9 @@
-defmodule InstatusAPIConsumer.MixProject do
+defmodule InstatusConsumer.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :instatus_api_consumer,
+      app: :instatus_consumer,
       version: "0.1.0",
       elixir: "~> 1.14",
       elixirc_paths: elixirc_paths(Mix.env()),
@@ -18,7 +18,7 @@ defmodule InstatusAPIConsumer.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {InstatusAPIConsumer.Application, []},
+      mod: {InstatusConsumer.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end
