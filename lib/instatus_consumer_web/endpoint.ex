@@ -26,7 +26,7 @@ defmodule InstatusConsumerWeb.Endpoint do
   plug CORSPlug,
     origin: [
       "http://localhost:3000",
-      "https://instatus-consumer-caejpfd97-fernando-sch.vercel.app/"
+      ~r/https?.*instatus-consumer\d?\.vercel.app$/
     ]
 
   # Code reloading can be explicitly enabled under the
