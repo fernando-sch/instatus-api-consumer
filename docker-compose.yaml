@@ -1,6 +1,7 @@
 x-service-defaults: &service-defaults
   build:
     context: .
+    dockerfile: Dockerfile.dev
   volumes:
     - .:/opt
     - "build:/opt/_build"

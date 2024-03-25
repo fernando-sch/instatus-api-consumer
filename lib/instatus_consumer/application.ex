@@ -12,8 +12,7 @@ defmodule InstatusConsumer.Application do
     children = [
       InstatusConsumerWeb.Telemetry,
       InstatusConsumer.Repo,
-      {DNSCluster,
-       query: Application.get_env(:instatus_consumer, :dns_cluster_query) || :ignore},
+      {DNSCluster, query: Application.get_env(:instatus_consumer, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: InstatusConsumer.PubSub},
       # Start a worker by calling: InstatusConsumer.Worker.start_link(arg)
       # {InstatusConsumer.Worker, arg},
