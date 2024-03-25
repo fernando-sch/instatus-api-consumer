@@ -24,7 +24,10 @@ defmodule InstatusConsumerWeb.Endpoint do
     only: InstatusConsumerWeb.static_paths()
 
   plug CORSPlug,
-    origin: ["http://localhost:3000"]
+    origin: [
+      "http://localhost:3000",
+      "https://instatus-consumer-caejpfd97-fernando-sch.vercel.app/"
+    ]
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
