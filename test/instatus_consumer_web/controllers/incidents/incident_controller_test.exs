@@ -5,7 +5,7 @@ defmodule InstatusConsumerWeb.Incidents.IncidentControllerTest do
 
   describe "index/2" do
     test "returns 200 listing all incidents" do
-      incidents = Factory.insert_list(4, :incident)
+      incidents = Factory.insert_list(4, :incident) |> Enum.reverse()
       conn = get(build_conn(), "/api/incidents")
       body = json_response(conn, 200)
       assert body["data"] == build_index_body(incidents)
