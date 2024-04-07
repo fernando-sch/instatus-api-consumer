@@ -36,7 +36,7 @@ defmodule InstatusConsumer.IncidentsTest do
 
   describe "list_incidents/0" do
     test "retuns a list of incidents" do
-      incidents = Factory.insert_list(4, :incident)
+      incidents = Factory.insert_list(4, :incident) |> Enum.reverse()
       assert Incidents.list_incidents() == incidents
     end
   end

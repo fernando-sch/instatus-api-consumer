@@ -19,7 +19,7 @@ defmodule InstatusConsumer.Incidents do
 
   @spec list_incidents() :: list(Incident)
   def list_incidents do
-    query = from(i in Incident, order_by: i.created_at)
+    query = from(i in Incident, order_by: [desc: i.created_at])
     Repo.all(query)
   end
 end
